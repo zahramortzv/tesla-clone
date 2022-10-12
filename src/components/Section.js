@@ -1,21 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Section = () => {
+const Section = ({title,descriptin,backgroundImage,leftBtnText,rightBtnText}) => {
     return (
-        <Wrap>
+        <Wrap bgImage={backgroundImage}>
             <ItemText>
-                <h1>Model S</h1>
-                <p>Order Online for Touchess Delivery</p>
+                <h1>{title}</h1>
+                <p>{descriptin}</p>
             </ItemText>
+            <Buttons>
             <ButtonGrup>
                 <LeftButton>
-                    Custom Order
+                    {leftBtnText}
                 </LeftButton>
                 <RightButton>
-                    Existing Inventory
+                    {rightBtnText}
                 </RightButton>
             </ButtonGrup>
+            <DownArrow src="/icons/down-arrow.png" />
+            </Buttons>
         </Wrap>
     );
 };
@@ -28,16 +31,29 @@ const Wrap = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat:no-repeat;
-    background-image: url('/images/tesla_model1.jpg');
+    background-image:  ${props => `url("/images/${props.bgImage}")`};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center
 `
 
 const ItemText = styled.div`
     padding-top: 15vh;
-    text-align: center
+    text-align: center;
+
+`
+
+const Buttons = styled.div`
+
 `
 
 const ButtonGrup = styled.div`
-
+    display: flex;
+    margin-bottom: 30px;
+    @media (max-width: 768px){
+        flex-direction: column;
+    }
 `
 
 const LeftButton = styled.div`
@@ -46,9 +62,24 @@ const LeftButton = styled.div`
     width: 256px;
     color: white;
     display: flex;
-    justify-content: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    opacity: 0.85;
+    text-transform: uppercase;
+    font-size:12px;
+    cursor:pointer;
+    margin: 8px;
 `
 
-const RightButton = styled.div`
+const RightButton = styled(LeftButton)`
+    background: white;
+    opacity: 0.65;
+    color: black;
+`
 
+const DownArrow = styled.img`
+    height: 40px;
+    overflow-x: hidden;
+    animation: animateDown infinite 1.5s;
 `
