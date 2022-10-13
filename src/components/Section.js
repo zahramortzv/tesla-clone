@@ -1,21 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Section = ({title,descriptin,backgroundImage,leftBtnText,rightBtnText}) => {
+const Section = ({title,description,backgroundImage,leftBtnText,rightBtnText}) => {
     return (
         <Wrap bgImage={backgroundImage}>
             <ItemText>
                 <h1>{title}</h1>
-                <p>{descriptin}</p>
+                <p>{description}</p>
             </ItemText>
             <Buttons>
             <ButtonGrup>
                 <LeftButton>
                     {leftBtnText}
                 </LeftButton>
-                <RightButton>
-                    {rightBtnText}
-                </RightButton>
+                {
+                    rightBtnText && 
+                        <RightButton>
+                            {rightBtnText}
+                        </RightButton>
+                }
+               
             </ButtonGrup>
             <DownArrow src="/icons/down-arrow.png" />
             </Buttons>

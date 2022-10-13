@@ -35,6 +35,19 @@ const Home = () => {
                 leftBtnText="Custome order"
                 rightBtnText="Existing Inventory"
             />
+            <Section
+                title="Soloar for New Roofs"
+                description="Solar Roof Costs Less Than a New Roof Plus Solar Panels"
+                backgroundImage="solar-roof.png"
+                leftBtnText="Order Now"
+                rightBtnText="Learn more"
+            />
+            <Section
+                title="Accessories"
+                description=""
+                backgroundImage="cable.jpg"
+                leftBtnText="Shop Now"
+            />
         </Container>
     );
 };
